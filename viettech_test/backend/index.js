@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import taskRoutes from './routes/taskRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -26,5 +27,7 @@ const connectDB = async () => {
 };
 
 connectDB();
+app.use("/tasks", taskRoutes);
+
 
 app.listen(PORT, console.log(`Successfully connect to port ${PORT}`));
